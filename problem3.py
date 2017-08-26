@@ -1,19 +1,20 @@
-""" Find the largest prime factor less than 600851475143"""
-def prime_factors(testnum):
-    """Find all factors of testnum and return as a list"""
+#!/usr/bin/python
+
+def prime_factors(n):
     i = 2
     factors = []
-    while i <= testnum ** 0.5:
-    #no need to check higher than sqrt(n)
-        if testnum % i:
+    while i * i <= n:
+        if n % i:
             i += 1
         else:
-            testnum //= i
-            #if i factors evenly, divide it out and test
-            #with the remaining number
+            n //= i
             factors.append(i)
-    if testnum > 1:
-        factors.append(testnum)
+    if n > 1:
+        factors.append(n)
     return factors
 
-print "The maximum prime factor of 600851475143 is " + str(max(prime_factors(600851475143)))
+#currnum = 600851475143
+#while is_prime(currnum) != True:#
+#	currnum = currnum / next_factor(currnum)
+
+print max(prime_factors(600851475143))
